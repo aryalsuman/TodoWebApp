@@ -1,0 +1,85 @@
+{% extends 'todo/base.html' %}
+
+
+
+
+
+                   
+    
+
+    
+
+
+{% block content %}
+{% if not todos %}
+<div class="jumbotron">
+    <h1 class="display-4">Hello {{ user.username }},Welcome</h1>
+
+
+    <p class="lead">This is simple task management application that will help manage day-to-day tasks.</p>
+    <hr class="my-4">
+    <p>You don't have any task.Let's create by clicking <a href="{%url 'add'%}"><button type="submit"
+                class="btn btn-success btn-lg" style="color: white;margin-top:2px"><span
+                    style="font-size: 25px; color:white ;">+</span> Create</button></a> Botton.</p>
+
+</div>
+
+{% else %}
+
+<h1 class="display-7 text-center">Hello {{ user.username }},Welcome back</h1>
+
+
+<div class="text-center" style="margin: 20px;"> <a href="{%url 'add'%}" style="margin-right: 10px;"><button
+            type="submit" class="btn btn-success btn-lg" style="color: white;margin-top:2px"><span
+                style="font-size: large; color:white ;">+</span> ADD</button></a>
+
+    <a href="{%url 'completelist'%}"><button type="submit" class="btn btn-secondary btn-lg"
+            style="color: white;margin-top:2px"> COMPLETE</button></a>
+
+</div>
+
+
+
+<table class="table " >
+    <thead  class="thead-light"style="text-align: center;">
+        <tr>
+
+            <th scope="col">Todos</th>
+            <th scope="col">Actions</th>
+
+        </tr>
+    </thead>
+
+
+
+
+
+    {% for todo in todos %}
+    <tbody>
+        <tr>
+
+            <td ><details>
+                <summary>{{ todo }}</summary>
+                <p> {{ todo.details }}</p>
+            </details> </td>
+            <td style="text-align: center;"> <a href="{%url 'update' todo.id%}"><button class="btn btn-primary" type="submit">Update</button></a>
+                <a href="{%url 'delete' todo.id %}"><button class="btn btn-danger" type="submit">Delete</button></a>
+                <a href="{%url 'complete' todo.id%}"><button class="btn btn-warning" type="submit">Done</button></a>
+            </td>
+
+        </tr>
+
+    </tbody>
+    {% endfor %}
+
+
+</table>
+
+
+{% endif %}
+
+
+
+
+
+{% endblock content %}

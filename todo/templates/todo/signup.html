@@ -1,0 +1,107 @@
+{% extends 'todo/base.html' %}
+
+
+
+
+
+{% block content %}
+<center>
+    <div class="container">
+        {% if error is not None %}
+        <div class="alert alert-danger" style="width: 80%;" role="alert">
+            {{error}}
+        </div>
+        {% endif %}
+      
+
+    </div>
+
+
+</center>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Sign Up</div>
+                <div class="card-body">
+
+                    <form class="form-horizontal" method="post" action="">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa"
+                                            aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="username" id="username"
+                                        placeholder="Enter your Username" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                            aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="email" id="email"
+                                        placeholder="Enter your Email"required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                            aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="password1" id="password"
+                                        placeholder="Enter your Password"required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                            aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="password2" id="confirm"
+                                        placeholder="Confirm your Password" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Sign Up</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+<!-- 
+<h1>{{error}}</h1>
+<form action="" method="post">
+    {% csrf_token %}
+
+    <label for="uname">Username:</label><br>
+    <input type="text" name="username" id="uname" placeholder="Enter Email"><br>
+    <label for="email">email:</label><br>
+    <input type="email" name="email" id="email" placeholder="Enter Email"><br>
+    <label for="password1">Password:</label>
+    <input type="password" name="password1" id="password1"><br>
+    <label for="password2">Conform Password:</label>
+    <input type="password" name="password2" id="password2"><br>
+    <input type="submit" value="Submit">
+
+</form> -->

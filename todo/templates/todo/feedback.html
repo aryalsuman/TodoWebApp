@@ -1,0 +1,22 @@
+{% extends 'todo/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+{% if message is not None  %}
+<div class="alert alert-info" role="alert">
+    {{ message }}
+  </div>
+    
+{% endif %}
+    
+<form action="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    <br>
+
+    <input class="btn btn-success" type="submit" value="Submit">
+</form>
+{% endblock content %}
+

@@ -1,0 +1,92 @@
+{% extends 'todo/base.html' %}
+{% block signup %}
+<a class="nav-link" href="{%url 'signupuser'%}">Sign Up <span class="sr-only">(current)</span></a>
+{% endblock signup  %}
+
+{% block home %}
+<a class="navbar-brand" href="{%url 'home'%}">TO DO </a>
+{% endblock home %}
+
+
+{% block content %}
+<center>
+    
+   
+    <div class="container">
+        {% if error is not None %}
+        <div class="alert alert-danger" style="width: 80%;" role="alert">
+            {{error}}
+        </div>
+        {% endif %}
+    </div>
+        
+    </div>
+    
+        
+    </center>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Log In</div>
+                <div class="card-body">
+
+                    <form class="form-horizontal" method="post" action="">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa"
+                                            aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="username" id="username"
+                                        placeholder="Enter your Username"required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                            aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="password" id="password"
+                                        placeholder="Enter your Password" required/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Log In</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+<!-- 
+
+{{ error }}
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" id="uname" placeholder="Username">
+    <input type="password" name="password" id="password">
+    <input type="submit" value="LOGIN">
+
+
+</form> -->
