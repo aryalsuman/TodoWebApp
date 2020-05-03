@@ -3,8 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 import random
-from .send_sms import Sendsms
-from .send_email import  SendEmail
 from .forms import TodoForm,FeebackForm
 
 from .models import Todo,Feedback
@@ -168,10 +166,6 @@ def Feedback(request):
             
             creted_db_wihtout_saving.save()
             
-            message__owner="--Username--"+request.user.username+"--Email--"+request.POST['email']+"--Feedback-- "+request.POST['feeds']
-            message__user=request.user.username.capitalize() +",  Thank You For Your Support. "+"#StayHome"
-            SendEmail(request.POST['email'],message__user)
-            # Sendsms(message__owner)
             
             
             return redirect('sucess')
